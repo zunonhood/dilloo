@@ -4,6 +4,7 @@
 
 # Dilloo
 
+[![X](https://img.shields.io/badge/follow-%40dilloonsolchain-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/dilloonsolchain)
 [![paper](https://img.shields.io/badge/read-the%20paper-6e935c?style=flat-square)](dilloo-paper.html)
 ![python](https://img.shields.io/badge/python-3.x-3776AB?style=flat-square&logo=python&logoColor=white)
 ![agents](https://img.shields.io/badge/agents-15-a4ca92?style=flat-square)

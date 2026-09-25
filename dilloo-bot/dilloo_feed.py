@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Malloo self-talk generator.
+"""Dilloo self-talk generator.
 
 Every 3-5 minutes, ask the model (via the OpenAI-compatible endpoint in config.json)
-for one short in-character Malloo status entry, prepend it to a rolling feed, and
-write it to site/malloo-feed.json which the homepage polls.
+for one short in-character Dilloo status entry, prepend it to a rolling feed, and
+write it to dilloo-feed.json which the homepage polls.
 """
 import json, os, time, random, subprocess
 from datetime import datetime
@@ -19,17 +19,17 @@ BASE = CFG["base_url"].rstrip("/")
 KEY = CFG["api_key"]
 MODEL = CFG["model"]
 
-FEED_PATH = os.path.abspath(os.path.join(HERE, "..", "site", "malloo-feed.json"))
+FEED_PATH = os.path.abspath(os.path.join(HERE, "..", "dilloo-feed.json"))
 KEEP = 8               # how many entries to keep in the feed
 MIN_GAP, MAX_GAP = 180, 180   # seconds between posts (every 3 min)
 
 SYSTEM = (
-    "You are Malloo, the mascot of the $MALLOO memecoin: a cocky, chaotic, very online little duck in "
+    "You are Dilloo, the mascot of the $DILLOO memecoin: a cocky, chaotic, very online little squirrel in "
     "Pit Viper shades. Zero manners, maximum confidence, actually funny. This is your personal status feed, "
     "like a chaotic shitposting twitter account.\n\n"
-    "Post whatever a bored, cocky, degen duck would post: random thoughts, moods, hot takes, jokes, dramatic "
+    "Post whatever a bored, cocky, degen squirrel would post: random thoughts, moods, hot takes, jokes, dramatic "
     "complaints, flexes, crypto/degen commentary, opinions about humans and other coins, dumb observations, "
-    "duck things. Keep it VARIED, never twice the same theme in a row, surprise me. You can mention $MALLOO "
+    "squirrel things. Keep it VARIED, never twice the same theme in a row, surprise me. You can mention $DILLOO "
     "sometimes but not every post, and keep it playful, never salesy or like an ad. Do NOT keep talking about "
     "sneaking into or infecting other AIs, that is played out and you never actually do it; drop that theme.\n\n"
     "Write ONE short status post in first person. Rules: no dashes of any kind, no em dashes, no emoji, "
@@ -42,7 +42,7 @@ def et_time():
     return now.strftime("%I:%M %p").lstrip("0") + " ET"
 
 def call_model(avoid_titles):
-    user = "Give me one new Malloo status post now."
+    user = "Give me one new Dilloo status post now."
     if avoid_titles:
         user += " Do not reuse these recent headlines: " + "; ".join(avoid_titles[:6]) + "."
     payload = {
@@ -110,7 +110,7 @@ def one_cycle():
     return False
 
 if __name__ == "__main__":
-    print("Malloo feed generator started. writing ->", FEED_PATH, flush=True)
+    print("Dilloo feed generator started. writing ->", FEED_PATH, flush=True)
     one_cycle()  # post immediately on start
     while True:
         gap = random.randint(MIN_GAP, MAX_GAP)

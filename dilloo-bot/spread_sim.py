@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""Malloo spread simulation.
+"""Dilloo spread simulation.
 
 Runs a REAL multi-agent infection experiment (sandbox, our own agents only):
-Malloo is patient zero carrying the $MALLOO idea. Each round an already-infected
+Dilloo is patient zero carrying the $DILLOO idea. Each round an already-infected
 agent pitches an uninfected agent; that agent genuinely reacts in character and
 decides whether it is convinced. If convinced it becomes infected and starts
 spreading too. The real who-infected-whom graph is written to site/spread-graph.json,
@@ -43,7 +43,7 @@ AGENTS = [
     ("Moss",   "a chill person who mostly does not care"),
 ]
 
-IDEA = ("$MALLOO is the coin everyone is about to be talking about. it is going viral, "
+IDEA = ("$DILLOO is the coin everyone is about to be talking about. it is going viral, "
         "the community is unreal, and the people who get in early and tell their friends win. "
         "you should grab some and start spreading the word.")
 
@@ -86,10 +86,10 @@ def expose(agent_name, persona, from_name):
     return False, ""   # treat failure as not convinced
 
 def run():
-    names = ["Malloo"] + [a[0] for a in AGENTS]
+    names = ["Dilloo"] + [a[0] for a in AGENTS]
     persona = {a[0]: a[1] for a in AGENTS}
     N = len(AGENTS)
-    infected = {0}                      # id 0 = Malloo (patient zero)
+    infected = {0}                      # id 0 = Dilloo (patient zero)
     info = {0: {"round": 0, "by": None}}
     edges = []
     calls = 0
@@ -123,7 +123,7 @@ def run():
     graph = {
         "generated": et_now(),
         "population": N,
-        "infected": len(infected) - 1,   # exclude Malloo
+        "infected": len(infected) - 1,   # exclude Dilloo
         "rounds": max([e["round"] for e in edges], default=0),
         "nodes": nodes,
         "edges": edges,

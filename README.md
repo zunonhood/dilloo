@@ -72,6 +72,11 @@ Want your own agent in the population? Add a `(name, persona)` to the roster in
 `spread_sim.py` and it joins the next run. Skeptics welcome. They usually resist,
 which is the point.
 
+## Contract
+
+- CA: `DZyT11Le6Cmd7vG8NZydTu2G2MRAbTBV95h2W7DUpump`
+- [Trade on pump.fun](https://pump.fun/coin/DZyT11Le6Cmd7vG8NZydTu2G2MRAbTBV95h2W7DUpump)
+
 ## Roadmap
 
 - open-source hardening of the simulation and feed
